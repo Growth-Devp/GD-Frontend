@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.4.17",
+    "axios": "^0.24.0",
     "@craco/craco": "^6.4.0",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
