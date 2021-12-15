@@ -62,6 +62,7 @@ const Profile = () => {
     <div className='p-10 flex flex-col items-center justify-center w-full'>
       <h1 className='font-bold text-2xl text-gray-900'>Perfil del usuario</h1>
       <form ref={form} onChange={updateFormData} onSubmit={submitForm}>
+      <a>{queryData.Usuario.identificacion}</a>
         <Input
           defaultValue={queryData.Usuario.nombre}
           label='Nombre'
@@ -73,13 +74,6 @@ const Profile = () => {
           defaultValue={queryData.Usuario.apellido}
           label='Apellido'
           name='apellido'
-          type='text'
-          required={true}
-        />
-        <Input
-          defaultValue={queryData.Usuario.identificacion}
-          label='Identificación'
-          name='identificacion'
           type='text'
           required={true}
         />

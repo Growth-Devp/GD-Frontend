@@ -34,7 +34,6 @@ const EDITAR_PERFIL = gql`
       _id
       nombre
       apellido
-      identificacion
       foto
     }
   }
