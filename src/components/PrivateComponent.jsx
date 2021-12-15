@@ -3,12 +3,10 @@ import React from 'react';
 
 const PrivateComponent = ({ roleList, children }) => {
   const { userData } = useUser();
-
-  if (roleList.includes(userData.rol)) {
+  const pass = roleList.includes(userData.rol)
+  if (pass) {
     return children;
   }
-
   return <></>;
 };
-
 export default PrivateComponent;
