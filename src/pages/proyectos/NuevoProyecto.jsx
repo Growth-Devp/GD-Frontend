@@ -25,7 +25,6 @@ const NuevoProyecto = () => {
     useMutation(CREAR_PROYECTO);
 
   useEffect(() => {
-    console.log(data);
     if (data) {
       const lu = {};
       data.Usuarios.forEach((elemento) => {
@@ -35,10 +34,6 @@ const NuevoProyecto = () => {
       setListaUsuarios(lu);
     }
   }, [data]);
-
-  useEffect(() => {
-    console.log('data mutation', mutationData);
-  });
 
   const submitForm = (e) => {
     e.preventDefault();

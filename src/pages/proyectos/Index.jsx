@@ -23,7 +23,6 @@ const IndexProyectos = () => {
   const { data: queryData, loading } = useQuery(PROYECTOS);
 
   useEffect(() => {
-    console.log('datos proyecto', queryData);
   }, [queryData]);
 
   if (loading) return <div>Cargando...</div>;
@@ -34,7 +33,7 @@ const IndexProyectos = () => {
         <div className='flex w-full items-center justify-center'>
           <h1 className='text-2xl font-bold text-gray-900'>Lista de Proyectos</h1>
         </div>
-        <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
+        <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']} status={["AUTORIZADO"]}>
           <div className='my-2 self-end'>
             <button className='bg-indigo-500 text-gray-50 p-2 rounded-lg shadow-lg hover:bg-indigo-400'>
               <Link to='/proyectos/nuevo'>Crear nuevo proyecto</Link>
@@ -64,7 +63,7 @@ const AccordionProyecto = ({ proyecto }) => {
           </div>
         </AccordionSummaryStyled>
         <AccordionDetailsStyled>
-          <PrivateComponent roleList={['ADMINISTRADOR']}>
+          <PrivateComponent roleList={['ADMINISTRADOR']} status={["AUTORIZADO"]}>
             <i
               className='mx-4 fas fa-pen text-yellow-600 hover:text-yellow-400'
               onClick={() => {
@@ -72,7 +71,7 @@ const AccordionProyecto = ({ proyecto }) => {
               }}
             />
           </PrivateComponent>
-          <PrivateComponent roleList={['ESTUDIANTE']}>
+          <PrivateComponent roleList={['ESTUDIANTE']} status={["AUTORIZADO"]}>
             <InscripcionProyecto
               idProyecto={proyecto._id}
               estado={proyecto.estado}
@@ -121,10 +120,6 @@ const FormEditProyecto = ({ _id }) => {
     });
   };
 
-  useEffect(() => {
-    console.log('data mutation', dataMutation);
-  }, [dataMutation]);
-
   return (
     <div className='p-4'>
       <h1 className='font-bold'>Modificar Estado del Proyecto</h1>
@@ -166,7 +161,7 @@ const Objetivo = ({ index, _id, idProyecto, tipo, descripcion }) => {
       <div className="mx-5 my-4 bg-gray-50 p-8 rounded-lg flex flex-col items-center justify-center shadow-xl">
         <div className="text-lg font-bold">{tipo}</div>
         <div>{descripcion}</div>
-        <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]}>
+        <PrivateComponent roleList={["ADMINISTRADOR", "LIDER"]} status={["AUTORIZADO"]}>
           <div className="flex my-2">
             <i 
               onClick={()=> setShowEditDialog(true)}
@@ -214,7 +209,6 @@ const EditarObjetivo = ({ descripcion, tipo, index, idProyecto, setShowEditDialo
         campos: formData,
       },
     }).catch((e) => {
-      console.log(e);
       toast.error('Error editando el objetivo');
     });
   };
@@ -261,7 +255,6 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       toast.success('inscripcion creada con exito');
     }
   }, [data]);

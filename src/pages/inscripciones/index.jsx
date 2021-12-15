@@ -11,11 +11,10 @@ const IndexInscripciones = () => {
   const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
 
   useEffect(() => {
-    console.log(data);
   }, [data]);
   if (loading) return <div>Loading...</div>;
   return (
-    <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>
+    <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']} status={["AUTORIZADO"]}>
       <div className='p-10'>
         <div>Pagina de inscripciones</div>
         <div className='my-4'>

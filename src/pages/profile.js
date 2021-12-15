@@ -30,7 +30,6 @@ const Profile = () => {
 
   useEffect(() => {
     if (dataMutation) {
-      console.log('data mutation', dataMutation);
       setUserData({ ...userData, foto: dataMutation.editarPerfil.foto });
       toast.success('Perfil modificado con exito');
       refetch();
@@ -38,15 +37,12 @@ const Profile = () => {
   }, [dataMutation]);
 
   useEffect(() => {
-    console.log('ud', queryData);
   }, [queryData]);
 
   const submitForm = async (e) => {
     e.preventDefault();
 
     const formUploaded = await uploadFormData(formData);
-
-    console.log('form cargado', formUploaded);
 
     editarPerfil({
       variables: {
