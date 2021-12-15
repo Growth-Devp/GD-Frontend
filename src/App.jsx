@@ -13,13 +13,11 @@ import Login from 'pages/auth/login';
 import { AuthContext } from 'context/authContext';
 import IndexProyectos from 'pages/proyectos/Index';
 import jwt_decode from 'jwt-decode';
-import 'styles/globals.css';
-import 'styles/tabla.css';
 import NuevoProyecto from 'pages/proyectos/NuevoProyecto';
 import IndexInscripciones from 'pages/inscripciones';
 import Profile from 'pages/profile';
-
-// import PrivateRoute from 'components/PrivateRoute';
+import 'styles/globals.css';
+import 'styles/tabla.css';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
