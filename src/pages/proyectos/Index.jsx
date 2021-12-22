@@ -108,7 +108,7 @@ const AccordionProyecto = ({ proyecto }) => {
 
 const FormEditProyecto = ({ _id }) => {
   const { form, formData, updateFormData } = useFormData();
-  const [editarProyecto, { data: dataMutation, loading, error }] = useMutation(EDITAR_PROYECTO);
+  const [editarProyecto, {loading}] = useMutation(EDITAR_PROYECTO);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -241,7 +241,7 @@ const EditarObjetivo = ({ descripcion, tipo, index, idProyecto, setShowEditDialo
 
 const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
   const [estadoInscripcion, setEstadoInscripcion] = useState('');
-  const [crearInscripcion, { data, loading, error }] = useMutation(CREAR_INSCRIPCION);
+  const [crearInscripcion, { data, loading}] = useMutation(CREAR_INSCRIPCION);
   const { userData } = useUser();
 
   useEffect(() => {

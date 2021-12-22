@@ -14,13 +14,12 @@ const Profile = () => {
   const { form, formData, updateFormData } = useFormData();
   const { userData, setUserData } = useUser();
 
-  const [editarPerfil, { data: dataMutation, error: errorMutation, loading: loadingMutation }] =
+  const [editarPerfil, { data: dataMutation, loading: loadingMutation }] =
     useMutation(EDITAR_PERFIL);
 
   const {
     data: queryData,
     loading: queryLoading,
-    error: queryError,
     refetch,
   } = useQuery(GET_USUARIO, {
     variables: {
@@ -34,7 +33,7 @@ const Profile = () => {
       toast.success('Perfil modificado con exito');
       refetch();
     }
-  }, [dataMutation]);
+  }, [dataMutation, refetch, setUserData, userData]);
 
   useEffect(() => {
   }, [queryData]);

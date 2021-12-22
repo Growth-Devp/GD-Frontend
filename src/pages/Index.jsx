@@ -4,7 +4,7 @@ import inicio from './imagenes/inicio.jpg'
 const Index = () => {
   return (
     <div>
-      <img src={inicio}/>
+      <img src={inicio} alt="imagen inicio"/>
     </div>
   );
 };
