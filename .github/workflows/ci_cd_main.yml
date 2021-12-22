@@ -6,8 +6,14 @@ name: CI_CD_MAIN
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: ['main']
-    
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -28,9 +34,7 @@ jobs:
       # builds project
       - name: Compilacion del proyecto
         run: yarn build
-    needs: [lint]
-
-  test:
+test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -50,7 +54,7 @@ jobs:
         run: yarn test
     needs: [build]
 
-  deploy:
+ deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
