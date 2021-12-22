@@ -15,13 +15,13 @@ import { CREAR_PROYECTO } from 'graphql/proyectos/mutations';
 const NuevoProyecto = () => {
   const { form, formData, updateFormData } = useFormData();
   const [listaUsuarios, setListaUsuarios] = useState({});
-  const { data, loading, error } = useQuery(GET_USUARIOS, {
+  const { data, loading } = useQuery(GET_USUARIOS, {
     variables: {
       filtro: { rol: 'LIDER', estado: 'AUTORIZADO' },
     },
   });
 
-  const [crearProyecto, { data: mutationData, loading: mutationLoading, error: mutationError }] =
+  const [crearProyecto] =
     useMutation(CREAR_PROYECTO);
 
   useEffect(() => {

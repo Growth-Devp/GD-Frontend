@@ -10,10 +10,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const PrivateLayout = () => {
   const navigate = useNavigate();
-  const { authToken, setToken } = useAuth();
+  const {setToken } = useAuth();
   const [loadingAuth, setLoadingAuth] = useState(true);
 
-  const [refreshToken, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
+  const [refreshToken, { data: dataMutation, loading: loadingMutation}] =
     useMutation(REFRESH_TOKEN);
 
   useEffect(() => {

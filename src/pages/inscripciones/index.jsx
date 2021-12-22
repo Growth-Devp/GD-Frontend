@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { AccordionStyled, AccordionSummaryStyled, AccordionDetailsStyled} from 'components/Accordion';
 
 const IndexInscripciones = () => {
-  const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
+  const { data, loading, refetch } = useQuery(GET_INSCRIPCIONES);
 
   useEffect(() => {
   }, [data]);
