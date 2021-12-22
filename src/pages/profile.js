@@ -33,7 +33,7 @@ const Profile = () => {
       toast.success('Perfil modificado con exito');
       refetch();
     }
-  }, [dataMutation]);
+  }, [dataMutation, refetch, setUserData, userData]);
 
   useEffect(() => {
   }, [queryData]);
